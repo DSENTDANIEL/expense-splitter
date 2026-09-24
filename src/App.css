@@ -6,6 +6,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  min-width: 320px;
+  min-height: 100%;
   background: #f4f7fb !important;
   color: #1f2937;
 }
@@ -16,8 +18,8 @@ body {
 }
 
 #root {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   background: #f4f7fb !important;
 }
 
@@ -26,11 +28,11 @@ body {
 ========================= */
 
 .app {
-  min-height: 100vh;
   width: 100%;
   max-width: 900px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 45px 20px;
   background: #f4f7fb;
 }
 
@@ -45,8 +47,10 @@ body {
 
 .header h1 {
   margin: 0 0 8px;
-  font-size: 36px;
   color: #111827;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
 }
 
 .header p {
@@ -60,93 +64,145 @@ body {
 ========================= */
 
 .card {
-  background: #ffffff;
-  padding: 25px;
+  width: 100%;
+  padding: 28px;
   margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
 }
 
 .card h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+
   color: #111827;
+
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .card h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #111827;
+  margin: 20px 0 10px;
+
+  color: #374151;
+
+  font-size: 15px;
+  font-weight: 600;
 }
 
 /* =========================
-   INPUTS & SELECT
+   INPUTS
 ========================= */
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
+  height: 46px;
+
+  margin: 7px 0;
+  padding: 0 13px;
+
   border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 15px;
-  font-family: Arial, sans-serif;
-  color: #111827 !important;
+  border-radius: 9px;
+
+  outline: none;
+
   background: #ffffff !important;
+  color: #111827 !important;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+
   -webkit-text-fill-color: #111827;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #6b7280 !important;
+  color: #9ca3af !important;
   opacity: 1;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 /* =========================
-   BUTTONS
+   ALL BUTTONS
 ========================= */
 
 button {
-  padding: 12px 18px;
-  margin-top: 8px;
+  height: 46px;
+
+  margin-top: 7px;
+  padding: 0 18px;
+
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
+
   background: #2563eb;
   color: #ffffff !important;
-  font-size: 15px;
+
   font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
 }
 
 button:hover {
   background: #1d4ed8;
 }
 
+button:active {
+  transform: translateY(1px);
+}
+
 /* =========================
-   FORM ROW
+   ADD PERSON FORM
 ========================= */
 
 .form-row {
-  display: flex;
-  gap: 10px;
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 120px;
+
+  width: 100%;
+
+  gap: 8px;
 }
 
 .form-row input {
-  flex: 1;
+  width: 100%;
+  height: 46px;
+
+  margin: 0;
 }
 
 .form-row button {
+  width: 120px !important;
+  height: 46px;
+
+  margin: 0;
+  padding: 0 8px;
+
   white-space: nowrap;
 }
 
@@ -157,35 +213,48 @@ button:hover {
 .members {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+
+  gap: 8px;
+
   margin-top: 18px;
 }
 
 .member {
   display: flex;
   align-items: center;
-  gap: 8px;
+
+  gap: 7px;
+
+  padding: 8px 12px;
+
   background: #eff6ff;
   color: #2563eb;
-  padding: 8px 14px;
+
+  border: 1px solid #dbeafe;
   border-radius: 20px;
+
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .remove-member {
-  margin: 0;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: transparent;
-  color: #2563eb !important;
-  font-size: 18px;
-  line-height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+  padding: 0;
+
+  border-radius: 50%;
+
+  background: transparent;
+  color: #2563eb !important;
+
+  font-size: 17px;
+  line-height: 1;
 }
 
 .remove-member:hover {
@@ -198,15 +267,26 @@ button:hover {
 ========================= */
 
 .participant {
-  display: block;
-  margin: 10px 0;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 9px 0;
+
   color: #374151;
+
+  font-size: 14px;
+
+  cursor: pointer;
 }
 
 .participant input {
-  width: auto;
-  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+
+  margin: 0;
+  padding: 0;
 }
 
 /* =========================
@@ -214,11 +294,19 @@ button:hover {
 ========================= */
 
 .expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
   padding: 18px;
   margin-bottom: 12px;
+
   background: #f8fafc;
+
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .expense-item:last-child {
@@ -226,14 +314,19 @@ button:hover {
 }
 
 .expense-item h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
+  margin: 0 0 7px;
+
   color: #111827;
+
+  font-size: 17px;
 }
 
 .expense-item p {
-  margin: 6px 0;
+  margin: 5px 0;
+
   color: #6b7280;
+
+  font-size: 14px;
 }
 
 .expense-item strong {
@@ -241,16 +334,25 @@ button:hover {
 }
 
 /* =========================
-   DELETE EXPENSE BUTTON
+   DELETE BUTTON
 ========================= */
 
 .delete-button {
-  background: #dc2626;
-  margin-top: 12px;
+  height: 38px;
+
+  margin: 0;
+  padding: 0 14px;
+
+  flex-shrink: 0;
+
+  background: #fee2e2;
+  color: #dc2626 !important;
+
+  font-size: 13px;
 }
 
 .delete-button:hover {
-  background: #b91c1c;
+  background: #fecaca;
 }
 
 /* =========================
@@ -259,9 +361,13 @@ button:hover {
 
 .balance {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 0;
+
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -271,12 +377,12 @@ button:hover {
 
 .positive {
   color: #16a34a;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .negative {
   color: #dc2626;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* =========================
@@ -285,6 +391,7 @@ button:hover {
 
 .card > p {
   color: #6b7280;
+  font-size: 14px;
 }
 
 /* =========================
@@ -300,42 +407,153 @@ button:hover {
   }
 
   .app {
-    padding: 25px 15px;
+    padding: 28px 15px;
+  }
+
+  /* Header */
+
+  .header {
+    margin-bottom: 28px;
   }
 
   .header h1 {
     font-size: 30px;
+    letter-spacing: -0.5px;
   }
 
   .header p {
     font-size: 14px;
   }
 
+  /* Cards */
+
+  .card {
+    padding: 22px 18px;
+    margin-bottom: 18px;
+
+    border-radius: 15px;
+  }
+
+  .card h2 {
+    margin-bottom: 20px;
+
+    font-size: 22px;
+  }
+
+  /* Add Person */
+
   .form-row {
-    flex-direction: column;
+    display: grid !important;
+
+    grid-template-columns: minmax(0, 1fr) 105px !important;
+
+    width: 100%;
+
+    gap: 7px;
+  }
+
+  .form-row input {
+    width: 100% !important;
+    min-width: 0;
+
+    height: 46px;
+
+    margin: 0;
   }
 
   .form-row button {
-    width: 100%;
+    display: block !important;
+
+    width: 105px !important;
+    min-width: 105px !important;
+
+    height: 46px;
+
+    margin: 0;
+
+    padding: 0 5px;
+
+    font-size: 13px;
+
+    white-space: nowrap;
   }
 
-  .card {
-    padding: 20px;
-  }
+  /* Members */
 
-  .expense-item {
-    padding: 15px;
+  .members {
+    gap: 8px;
+    margin-top: 18px;
   }
 
   .member {
-    padding: 7px 12px;
+    padding: 8px 11px;
+
+    font-size: 14px;
   }
+
+  /* Expense */
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .delete-button {
+    width: 100%;
+    height: 40px;
+  }
+
+  /* Balance */
+
+  .balance {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  /* Mobile Inputs */
 
   input,
   select,
   textarea {
+    height: 46px;
+
     color: #111827 !important;
     background: #ffffff !important;
+
     -webkit-text-fill-color: #111827 !important;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+  .app {
+    padding: 22px 12px;
+  }
+
+  .card {
+    padding: 18px 14px;
+  }
+
+  .header h1 {
+    font-size: 27px;
+  }
+
+  .form-row {
+    grid-template-columns: minmax(0, 1fr) 95px !important;
+    gap: 6px;
+  }
+
+  .form-row button {
+    width: 95px !important;
+    min-width: 95px !important;
+
+    font-size: 12px;
   }
 }
